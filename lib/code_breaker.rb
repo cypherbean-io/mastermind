@@ -2,7 +2,7 @@ class CodeBreaker
   def initialize; end
 
   def valid_guess?(guess)
-    guess.length == 4 && guess.all? { |num| '1'..'6'.include?(num) }
+    guess.length == 4 && guess.all? { |num| ('1'..'6').include?(num) }
   end
 
   def make_guess
