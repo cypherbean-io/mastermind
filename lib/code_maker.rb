@@ -11,4 +11,14 @@ class CodeMaker
     exact_matches = guess.zip(secret_code).count { |a, b| a == b }
     { exact: exact_matches }
   end
+
+  def exact_matches(guess, secret_code)
+    guess.zip(secret_code).count { |a, b| a == b }
+  end
+
+  def color_matches(guess, secret_code)
+    guess_tally = guess.tally
+    secret_tally = secret_code.tally
+    COLORS.sum { |color| [guess_tally[color] || 0, secret_tally[color] || 0].min }
+  end
 end
