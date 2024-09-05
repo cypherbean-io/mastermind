@@ -19,6 +19,6 @@ class Game
   private
 
   def display_feedback(feedback)
-    puts "Exact matches: #{feedback[:exact]}"
+    puts "Exact matches: #{feedback[:exact]}, Color matches: #{feedback[:color]}"
   end
 end
