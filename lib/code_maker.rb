@@ -8,8 +8,9 @@ class CodeMaker
   end
 
   def provide_feedback(guess, secret_code)
-    exact_matches = guess.zip(secret_code).count { |a, b| a == b }
-    { exact: exact_matches }
+    exact = exact_matches(guess, secret_code)
+    color = color_matches(guess, secret_code) - exact
+    { exact: exact, color: color }
   end
 
   def exact_matches(guess, secret_code)
