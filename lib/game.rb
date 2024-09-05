@@ -16,5 +16,16 @@ class Game
       @board.update(turn, guess, feedback)
       break if guess == @secret_code
     end
+    display_result
+  end
+
+  private
+
+  def display_result
+    if @board.last_guess == @secret_code
+      puts "\nCongratulations! You've cracked the code!"
+    else
+      puts "\nGame over, you ran out of turns! The secret code was #{@secret_code.join(' ')}."
+    end
   end
 end
