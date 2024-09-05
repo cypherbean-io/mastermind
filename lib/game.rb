@@ -1,5 +1,8 @@
 class Game
   def initialize
+    @code_maker = CodeMaker.new
+    @code_breaker = CodeBreaker.new
+    @secret_code = @code_maker.generate_code
     @max_turns = 12
   end
 
