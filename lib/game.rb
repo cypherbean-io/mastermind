@@ -8,9 +8,11 @@ class Game
 
   def play
     @max_turns.times do |turn|
-      puts "Turn #{turn + 1}: Enter your guess"
-      guess = gets.chomp
-      puts guess
+      puts "\nTurn #{turn + 1} / #{@max_turns}"
+      guess = code_breaker.make_guess
+      feedback = code_maker.provide_feedback(guess, @secret_code)
+      display_feedback(feedback)
+      break if guess == @secret_code
     end
   end
 
