@@ -15,6 +15,12 @@ class Board
     end
   end
 
+  def last_guess
+    @guesses.last
+  end
+
+  private
+
   def display_row(guess, feedback, index)
     return if guess.nil?
 
