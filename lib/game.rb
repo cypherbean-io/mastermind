@@ -13,4 +13,10 @@ class Game
       puts guess
     end
   end
+
+  private
+
+  def display_feedback(feedback)
+    puts "Exact matches: #{feedback[:exact]}"
+  end
 end
