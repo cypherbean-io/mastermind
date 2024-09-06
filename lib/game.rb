@@ -23,9 +23,9 @@ class Game
 
   def display_result
     if @board.last_guess == @secret_code
-      puts "\nCongratulations! You've cracked the code!"
+      puts "\nCongratulations! You've cracked the code!".green
     else
-      puts "\nGame over, you ran out of turns! The secret code was #{@secret_code.join(' ')}."
+      puts "\nGame over, you ran out of turns! ".red + "The secret code was: #{@code_maker.format_code(@secret_code)}."
     end
   end
 end
