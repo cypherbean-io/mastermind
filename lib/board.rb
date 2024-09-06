@@ -24,6 +24,12 @@ class Board
   def display_row(guess, feedback, index)
     return if guess.nil?
 
-    puts "#{index + 1}: #{guess.join(' ')} | Exact: #{feedback[:exact]}, Color: #{feedback[:color]}"
+    guess_str = guess.map { |num| num.colorize(color: color(num)) }.join(' ')
+    feedback_str = ('●'.red * feedback[:exact]) + ('●'.white * feedback[:color]).ljust(4)
+    puts "#{index + 1}: #{guess_str} | #{feedback_str}"
+  end
+
+  def color(num)
+    %i[red green yellow blue magenta cyan] [num.to_i - 1]
   end
 end
