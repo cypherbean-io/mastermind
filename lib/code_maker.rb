@@ -22,4 +22,12 @@ class CodeMaker
     secret_tally = secret_code.tally
     COLORS.sum { |color| [guess_tally[color] || 0, secret_tally[color] || 0].min }
   end
+
+  def color(num)
+    %i[red green yellow blue magenta cyan] [num.to_i - 1]
+  end
+
+  def format_code(code)
+    code.map { |num| num.colorize(color: color(num)) }.join(' ')
+  end
 end
